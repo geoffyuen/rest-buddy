@@ -22,7 +22,10 @@ function rb_menunested($menu, $id = 0)
   $submenu = [];
   foreach ($menu as $item) {
     if ($item->menu_item_parent == $id) {
-      $item->children = rb_menunested($menu, $item->ID);
+      $children = rb_menunested($menu, $item->ID);
+      if ($children) {
+        $item->children = $children;
+      }
       $submenu[] = $item;
     }
   }
