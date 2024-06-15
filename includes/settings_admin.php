@@ -120,11 +120,17 @@ class RESTBuddy
                 'label' => 'Menu'
             ],
         ];
-        foreach ($urls as $link) : ?>
-        <ul>
-            <li><?=$link['label']?>: <a href="<?=$link['url']?>" target="_blank"><?=$link['url']?></a></li>
-        </ul>
-        <?php endforeach;
+        ?>
+        <table class="form-table">
+        <?php foreach ($urls as $link) : ?>
+        <tr>
+            <th><?=$link['label']?></th>
+            <td><a href="<?=$link['url']?>" target="_blank"><?=$link['url']?></a></td>
+        </tr>
+        <?php endforeach; ?>
+        </table>
+        <hr>
+        <?php
     }
 
     public function menus_in_public_rest_0_callback()
